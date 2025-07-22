@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflex - Premium Domain Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700,800&display=swap" rel="preload" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: none; /* Hide text logo when using image */
+        }
+        
+        .logo-svg {
+            height: auto;
+            max-height: 48px;
+            width: auto;
+            display: block;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+        
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 32px;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #444;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        
+        .section-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            max-width: 700px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+        
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+        
+        .value-prop {
+            text-align: center;
+            padding: 32px;
+        }
+        
+        .value-prop-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 16px;
+            opacity: 0.7;
+        }
+        
+        .value-prop h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+        
+        .value-prop p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+        
+        .domain-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            padding: 32px;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .domain-card:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .domain-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+            color: #1a1a1a;
+        }
+        
+        .domain-category {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .domain-icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.6;
+        }
+        
+        .story-section {
+            background: white;
+            padding: 80px 0;
+            margin-top: 80px;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .story-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .story-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 24px;
+        }
+        
+        .cta {
+            background: #1a1a1a;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .cta h2 {
+            color: white;
+            margin-bottom: 24px;
+        }
+        
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.8;
+        }
+        
+        .button {
+            display: inline-block;
+            background: white;
+            color: #1a1a1a;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            color: #666;
+        }
+        
+        footer a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .value-props {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <img src="logo.png" alt="Reflex Publishing" class="logo-svg">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero container">
+        <h1>We Build Value</h1>
+        <p class="subtitle">Domain Development and Investment</p>
+        <p class="hero-description">Since 1997, we've acquired category-defining domain names. Some become developed properties, others find their place with the right business.</p>
+    </section>
+    
+    <section class="section container">
+        <h2>We Develop Opportunities</h2>
+        <div class="section-content">
+            <p>Every domain in our portfolio represents potential. The right name can transform how customers see a business - it's the difference between being found and being forgotten.</p>
+        </div>
+        
+        <div class="value-props">
+            <div class="value-prop">
+                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <h3>Premium Domains</h3>
+                <p>Category-defining names that make sense for serious businesses.</p>
+            </div>
+            <div class="value-prop">
+                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="m2 17 10 5 10-5"/>
+                    <path d="m2 12 10 5 10-5"/>
+                </svg>
+                <h3>Development</h3>
+                <p>Some domains become our own projects. Others go to buyers with the right vision.</p>
+            </div>
+            <div class="value-prop">
+                <svg class="value-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <h3>Experience</h3>
+                <p>Since 1997. We've watched trends come and go, but great domains endure.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section container" id="portfolio">
+        <h2>Featured Domains</h2>
+        <div class="section-content">
+            <p>A selection of premium domains from our portfolio, spanning multiple industries and verticals.</p>
+        </div>
+        
+        <div class="domain-grid">
+            <a href="https://www.creditunion.com" target="_blank" class="domain-card">
+                <div class="domain-name">CreditUnion.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3v18h18"/>
+                        <path d="m19 9-5 5-4-4-3 3"/>
+                    </svg>
+                    Financial Services
+                </div>
+            </a>
+            <a href="https://www.sunglasses.com" target="_blank" class="domain-card">
+                <div class="domain-name">Sunglasses.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6"/>
+                        <path d="m4.2 4.2 4.2 4.2m5.6 5.6 4.2 4.2"/>
+                        <path d="M1 12h6m6 0h6"/>
+                        <path d="m4.2 19.8 4.2-4.2m5.6-5.6 4.2-4.2"/>
+                    </svg>
+                    Fashion & Eyewear
+                </div>
+            </a>
+            <a href="https://www.chart.com" target="_blank" class="domain-card">
+                <div class="domain-name">Chart.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"/>
+                        <path d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1h18z"/>
+                        <path d="M3 12v7c0 .552.448 1 1 1h16c.552 0 1-.448 1-1v-7"/>
+                    </svg>
+                    Technology
+                </div>
+            </a>
+            <a href="https://www.professional.com" target="_blank" class="domain-card">
+                <div class="domain-name">Professional.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 21h18"/>
+                        <path d="M5 21V7l8-4v18"/>
+                        <path d="M19 21V11l-6-4"/>
+                    </svg>
+                    Enterprise
+                </div>
+            </a>
+            <a href="https://www.motels.com" target="_blank" class="domain-card">
+                <div class="domain-name">Motels.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 12h8"/>
+                        <path d="M12 16c2.5 0 4.5-1.5 4.5-4s-2-4-4.5-4-4.5 1.5-4.5 4 2 4 4.5 4z"/>
+                    </svg>
+                    Tourism
+                </div>
+            </a>
+            <a href="https://www.license.com" target="_blank" class="domain-card">
+                <div class="domain-name">License.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                    Learning
+                </div>
+            </a>
+            <a href="https://www.baseball.com" target="_blank" class="domain-card">
+                <div class="domain-name">Baseball.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 12s1.5-2 4-2 4 2 4 2"/>
+                        <path d="M8 12s1.5 2 4 2 4-2 4-2"/>
+                    </svg>
+                    Sports
+                </div>
+            </a>
+            <a href="https://www.locate.com" target="_blank" class="domain-card">
+                <div class="domain-name">Locate.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Location Services
+                </div>
+            </a>
+            <a href="https://www.flooring.com" target="_blank" class="domain-card">
+                <div class="domain-name">Flooring.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    Home Services
+                </div>
+            </a>
+            <a href="https://www.homehealth.com" target="_blank" class="domain-card">
+                <div class="domain-name">HomeHealth.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
+                    </svg>
+                    Healthcare
+                </div>
+            </a>
+            <a href="https://www.cellphone.com" target="_blank" class="domain-card">
+                <div class="domain-name">Cellphone.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                        <path d="M12 18h.01"/>
+                    </svg>
+                    Technology
+                </div>
+            </a>
+            <a href="https://www.cad.com" target="_blank" class="domain-card">
+                <div class="domain-name">CAD.com</div>
+                <div class="domain-category">
+                    <svg class="domain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 2h20v20H2z"/>
+                        <path d="M12 2v20"/>
+                        <path d="M2 12h20"/>
+                        <path d="M2 2l20 20"/>
+                    </svg>
+                    Design & Engineering
+                </div>
+            </a>
+        </div>
+        
+    </section>
+    
+    <section class="story-section" id="about">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="story-content">
+                <p>Reflex was founded in 1997, when the internet was just beginning to transform commerce. We recognized which domain names would define entire industries and invested early.</p>
+                
+                <p>Building this portfolio took vision - understanding not just what businesses needed then, but what they would need decades later. Each acquisition was deliberate.</p>
+                
+                <p>Today our domains span every major industry. We continue to identify names that matter, develop select properties, and connect others with businesses ready to build.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>For inquiries about Reflex and our portfolio.</p>
+            <a href="mailto:hello@reflex.com" class="button">Contact Us</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Reflex. All rights reserved. | <a href="mailto:hello@reflex.com">hello@reflex.com</a> | <a href="privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
